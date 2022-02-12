@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        color: #fff;
+        overflow: hidden;
+        background: #2949f0;
+      }
+
+      .box {
+        cursor: pointer;
+        width: 186px;
+        height: 60px;
+        border-radius: 24px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+        background: #2949f0;
+        box-shadow: 5px 5px 11px #233ecc -5px -5px 11px #2f54ff;
+        -webkit-border-radius: 24px;
+        -moz-border-radius: 24px;
+        -ms-border-radius: 24px;
+        -o-border-radius: 24px;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+      }
+      .box i {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        margin: 0 4px;
+        font-size: 14px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+      }
+
+      .box span {
+        font-size: 24px;
+      }
+
+      @keyframes roll {
+        from {
+          transform: rotate(0);
+          -webkit-transform: rotate(0);
+          -moz-transform: rotate(0);
+          -ms-transform: rotate(0);
+          -o-transform: rotate(0);
+        }
+        to {
+          transform: rotate(360deg);
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box" id="box" onclick="trigger()">
+        <i class="fa fa-long-arrow-up" id="icon"></i>
+        <span id="text"></span>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  function trigger() {
+    document.getElementById("text").innerHTML = "Loading...";
+    document.getElementById("icon").style.animation = "roll infinite 2s";
+
+    setTimeout(function () {
+      document.getElementById("text").innerHTML = "Done loading";
+      document.getElementById("icon").classList.remove("fa-long-arrow-up");
+      document.getElementById("icon").classList.add("fa-check");
+      document.getElementById("box").style.background = "#3cc43c";
+      document.getElementById("icon").style.animation = "unset";
+      document.getElementById("box").style["boxShadow"] =
+        "5px 5px 11px #33a733";
+    }, 2000);
+  }
+</script>
